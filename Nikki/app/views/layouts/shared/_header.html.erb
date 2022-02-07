@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
 
     <%= link_to root_path, class: 'navbar-brand' do %>
-      <%= image_tag 'logo.png', size: '100x50' %>
+      <%= image_tag 'logo.png', size: '50x50' %>
     <% end %>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -23,6 +23,11 @@
 
         <li class="nav-item">
           <%= link_to 'ブックマーク一覧', '#', class: 'nav-link' %>
+          <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete %>
+          <%= link_to "Logout", "/logout", method: :post%>
+          </div>
+        </li>
+      </ul>
         </li>
 
         <li class="nav-item dropdown dropdown-slide">
@@ -33,8 +38,8 @@
             <div class="dropdown-item">う</div>
             <div class="dropdown-divider"></div>
             <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
-
             <%= link_to 'ログアウト', 'logout_path', class: 'dropdown-item', method: :delete %>
+            <%= link_to "Logout", "/logout", method: :post%>
           </div>
         </li>
       </ul>

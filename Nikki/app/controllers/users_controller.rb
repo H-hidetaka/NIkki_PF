@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def new
-    ユーザー作成ページ
     @user = User.new
   end
 

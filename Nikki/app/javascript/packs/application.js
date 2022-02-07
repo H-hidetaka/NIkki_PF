@@ -1,5 +1,4 @@
-import 'bootstrap';
-import '../stylesheets/application';
+
 
 // This file is automatically compiled by Webpack, along with any other files
 // present in this directory. You're encouraged to place your actual application logic in
@@ -10,6 +9,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery")
 
 //= require jquery3
 //= require popper
@@ -21,3 +21,5 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+import 'bootstrap';
+import '../src/application.scss';
