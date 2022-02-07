@@ -1,11 +1,12 @@
 require 'rails_helper'
-describe User do
+
+RSpec.describe User do
   describe '#create' do
 
     #1
     it "nameとemail、passwordとpassword_confirmationが存在すれば登録できること" do
+      visit new_user_path
       user = build(:user)
-      login(user)
       expect(user).to be_valid
     end
 
