@@ -27,10 +27,11 @@ module Nikki
     config.generators do |g|
       # g.skip_routes true
       g.assets false
-      g.helper false
+      # g.helper false
       g.test_framework false
     end
-
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}').to_s]
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -40,6 +41,8 @@ module Nikki
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
     config.generators.system_tests = nil
   end
 end

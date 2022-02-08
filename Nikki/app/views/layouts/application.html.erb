@@ -10,8 +10,13 @@
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <%= render 'layouts/shared/header' %>
+    <% if logged_in? %>
+      <%= render 'layouts/shared/header' %>
+    <% else %>
+      <%= render 'layouts/shared/before_login_header' %>
+    <% end %>
+      <%= render 'layouts/shared/flash_message' %>
     <%= yield %>
-    <%= render 'layouts/shared/footer' %>
+      <%= render 'layouts/shared/footer' %>
   </body>
 </html>

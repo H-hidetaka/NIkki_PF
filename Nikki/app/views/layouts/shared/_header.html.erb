@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
 
     <%= link_to root_path, class: 'navbar-brand' do %>
-      <%= image_tag 'logo.png', size: '100x50' %>
+      <%= image_tag 'logo.png', size: '50x50' %>
     <% end %>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,31 +12,50 @@
       <ul class="navbar-nav ml-auto main-nav align-items-center">
         <li class="nav-item dropdown dropdown-slide">
           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            掲示板
+            <%= Diary.model_name.human %>
           </a>
 
           <div class="dropdown-menu dropdown-menu-right">
-            <%= link_to '掲示板一覧', '#', class: 'dropdown-item' %>
-            <%= link_to '掲示板作成', '#', class: 'dropdown-item' %>
+            <%= link_to t('diaries.index.title'), diaries_path, class: 'dropdown-item' %>
+            <%= link_to '掲示板作成', diaries_path, class: 'dropdown-item' %>
           </div>
         </li>
 
         <li class="nav-item">
           <%= link_to 'ブックマーク一覧', '#', class: 'nav-link' %>
+          <%= link_to (t'defaults.logout'), logout_path, class: 'dropdown-item', method: :delete %>
+          </div>
+        </li>
+        <nav class="navbar navbar-dark bg-dark">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">dropwown
+          </button>
+
+        </nav>
+      <%
+=begin%>
+ </ul>
         </li>
 
-        <li class="nav-item dropdown dropdown-slide">
+        <li class="navbar navbar-dark bg-dark dropdown">
           <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="header-profile">
             <%= image_tag 'sample', size: '40x40', class: 'rounded-circle mr15'%>
           </a>
           <div class="dropdown-menu dropdown-menu-right">
-            <div class="dropdown-item">う</div>
+            <button class="dropdown-item" type="button">Action</button>
+            <button class="dropdown-item" type="button">Another action</button>
+            <button class="dropdown-item" type="button">Something else here</button>
+          </div>
+          <div class="dropdown-menu dropdown-menu-right">
+            <button class="dropdown-item"><%= current_user.decorate.user_name %></button>
+            <button class="dropdown-item" type="button">Action</button>
             <div class="dropdown-divider"></div>
             <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
-
-            <%= link_to 'ログアウト', '#', class: 'dropdown-item' %>
+            <%= link_to 'ログアウト', 'logout_path', class: 'dropdown-item', method: :delete %>
+            <%= link_to "Logout", "/logout", method: :post%>
           </div>
         </li>
+<%
+=end%>
       </ul>
     </div>
   </nav>
