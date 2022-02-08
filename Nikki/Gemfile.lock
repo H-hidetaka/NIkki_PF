@@ -1,3 +1,15 @@
+GIT
+  remote: https://github.com/drapergem/draper.git
+  revision: 26a18c8cc9ce112f7cf2a308b52952680d9a2cdf
+  specs:
+    draper (4.0.2)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
+      activemodel-serializers-xml (>= 1.0)
+      activesupport (>= 5.0)
+      request_store (>= 1.0)
+      ruby2_keywords
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -44,6 +56,10 @@ GEM
       globalid (>= 0.3.6)
     activemodel (6.1.4.4)
       activesupport (= 6.1.4.4)
+    activemodel-serializers-xml (1.0.2)
+      activemodel (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (6.1.4.4)
       activemodel (= 6.1.4.4)
       activesupport (= 6.1.4.4)
@@ -228,6 +244,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.2.0)
+    request_store (1.5.1)
+      rack (>= 1.4)
     rexml (3.2.5)
     rspec-core (3.10.2)
       rspec-support (~> 3.10.0)
@@ -329,6 +347,7 @@ DEPENDENCIES
   bootstrap (~> 4.5.0)
   byebug
   capybara
+  draper!
   factory_bot_rails
   faker
   font-awesome-sass (~> 5.11.2)

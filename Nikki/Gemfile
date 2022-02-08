@@ -39,6 +39,8 @@ gem 'jquery-rails'   # Rails5.1以上の場合は追加
 gem 'sorcery'
 gem 'pry-byebug'
 gem 'rails-i18n'
+# gem 'draper'
+gem 'draper', github: 'drapergem/draper'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
