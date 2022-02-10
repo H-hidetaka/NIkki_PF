@@ -46,7 +46,7 @@ describe User do
 
     #7
     it "nameが2文字以下では登録できない" do
-      user = build(:user, name: "abemat")
+      user = build(:user, name: "ab")
       user.valid?
       expect(user.errors[:name]).to include("は3文字以上で入力してください")
     end
