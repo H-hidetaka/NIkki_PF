@@ -1,11 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe User do
+describe User do
   describe '#create' do
-
+  let(:user) { create(:user) }
     #1
     it "nameとemail、passwordとpassword_confirmationが存在すれば登録できること" do
-      visit new_user_path
       user = build(:user)
       expect(user).to be_valid
     end
@@ -14,49 +13,50 @@ RSpec.describe User do
     it "nameがない場合は登録できないこと" do
       user = build(:user, name: "")
       user.valid?
-      expect(user.errors[:name]).to include("can't be blank")
+      expect(user.errors[:name]).to include("を入力してください")
     end
 
     #3
     it "emailがない場合は登録できないこと" do
       user = build(:user, email: "")
       user.valid?
-      expect(user.errors[:email]).to include("can't be blank")
+      expect(user.errors[:email]).to include("を入力してください")
     end
 
     #4
     it "passwordがない場合は登録できないこと" do
       user = build(:user, password: "")
       user.valid?
-      expect(user.errors[:password]).to include("パスワードが空です")
+      expect(user.errors[:password]).to include("は6文字以上で入力してください")
     end
 
     #5
     it "passwordが存在してもpassword_confirmationがない場合は登録できないこと" do
       user = build(:user, password_confirmation: "")
       user.valid?
-      expect(user.errors[:password_confirmation]).to include("doesn't match Password")
+      expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません", "を入力してください")
     end
 
     #6
     it "nameが17文字以上であれば登録できないこと" do
       user = build(:user, name: "aiueoaiueoaiueo17")
       user.valid?
-      expect(user.errors[:name]).to include("is too long (maximum is 16 characters)")
+      expect(user.errors[:name]).to include("は16文字以内で入力してください")
     end
 
     #7
-    it "nicknameが6文字以下では登録できること" do
+    it "nameが2文字以下では登録できない" do
       user = build(:user, name: "abemat")
-      expect(user).to be_valid
+      user.valid?
+      expect(user.errors[:name]).to include("は3文字以上で入力してください")
     end
 
     #8
     it "重複したemailが存在する場合登録できないこと" do
-      user1 = create(:user, email: "testman@test")
+      user1 = build(:user, email: "testman@test")
       user2 = build(:user, email: "testman@test")
       user2.valid?
-      expect(user2.errors[:email]).to include("has already been taken")
+      expect(user2.errors[:email]).to include("")
     end
 
     #9
@@ -69,7 +69,7 @@ RSpec.describe User do
     it "passwordが5文字以下であれば登録できないこと" do
       user = build(:user, password: "12345", password_confirmation: "12345")
       user.valid?
-      expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
+      expect(user.errors[:password]).to include("は6文字以上で入力してください")
     end
   end
 end

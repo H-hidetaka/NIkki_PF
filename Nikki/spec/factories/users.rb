@@ -1,12 +1,19 @@
 FactoryBot.define do
   factory :user do
-    # sequence(:name)  { |n| "#{n}abe"}
-    name                        {"hide"}
-    # sequence(:email) { |n| "person#{n}@example.com" }
-    email                       {"example@example"}
-    password                    {"00000000"}
-    password_confirmation       {"00000000"}
+    # Faker::Config.locale = :ja
+    # diaries { FactoryBot.create(:diaries)}
+    sequence(:name)  { |n| "#{n}abe"}
+    # sequence(:name)                        { Faker::Name.name }
+    sequence(:email) { |n| "person#{n}@example.com" }
+    # sequence(:email)                       { Faker::Internet.free_email }
+    # password = Faker::Internet.password(min_length: 6)
+    password                    { "00000000" }
+    password_confirmation       { "00000000" }
   end
+  # trait :diaries do
+  #   title { "title" }
+  #   body { "body is max 60000" }
+  # end
 end
 
     # sequence(:name) { |n| "admin-#{n}" }
