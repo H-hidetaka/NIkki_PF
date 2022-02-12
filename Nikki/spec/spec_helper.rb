@@ -26,6 +26,8 @@ RSpec.configure do |config|
   config.include Rails.application.routes.url_helpers
   config.include Capybara::DSL
   # rspec-expectations config goes here. You can use an alternate
+  config.include Sorcery::TestHelpers::Rails::Controller, type: :controller
+  config.include Sorcery::TestHelpers::Rails::Integration, type: :feature
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
   config.expect_with :rspec do |expectations|
