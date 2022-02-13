@@ -114,6 +114,7 @@ RSpec.describe 'ユーザー', type: :system do
           fill_in 'user[email]', with: ''
           expect(page).to have_content('プロフィールが編集されました')
           expect(current_path).to eq(update_profile_path)
+        end
 
           it 'パスワードが空欄の場合、プロフィールが編集できない' do
           update_new(user)
@@ -134,6 +135,7 @@ RSpec.describe 'ユーザー', type: :system do
           expect(page).to have_content('プロフィールが編集されました')
           expect(current_path).to eq(updaste_profile_path)
         end
+
       end
     end
   end
