@@ -1,4 +1,5 @@
 class Diary < ApplicationRecord
+  mount_uploader :diary_image, DiaryImageUploader
   belongs_to :user
 
   has_many :diaries, dependent: :destroy

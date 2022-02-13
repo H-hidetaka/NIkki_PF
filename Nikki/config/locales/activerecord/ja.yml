@@ -14,3 +14,4 @@ ja:
       diary:
         title: 'タイトル'
         body: '本文'
+        diary_image: 'サムネイル'
