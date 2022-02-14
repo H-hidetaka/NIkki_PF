@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   post 'diaries/new', to: 'diaries#create'
 
   resources :users, only: %i[new create destroy]
-  resources :diaries, only: %i[index new create]
+  resources :diaries, only: %i[index new create show] do
+    resources :comments, only: %i[create], shallow: true
+  end
 end

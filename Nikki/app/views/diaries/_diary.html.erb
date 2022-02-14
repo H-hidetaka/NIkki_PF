@@ -5,14 +5,9 @@
     <%= image_tag diary.diary_image_url, class: 'card-img-top', size: '300x200' %>
       <div class="card-body">
         <h4 class="card-title">
-          <a href="#">
-            <%= diary.title %>
-          </a>
+          <%= link_to diary.title, diaries_path(diary)%>
+        <%= render 'crud_menus', diary: diary %>
         </h4>
-        <div class='mr10 float-right'>
-          <a href="#"><%= icon 'fas', 'trash', class: 'pr-1' %></a>
-          <a href="#"><%= icon 'fa', 'pen' %></a>
-        </div>
         <ul class="list-inline">
           <li class="list-inline-item">
             <%= icon 'far', 'user' %>

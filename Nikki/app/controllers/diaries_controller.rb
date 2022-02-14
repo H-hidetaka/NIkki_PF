@@ -18,6 +18,8 @@ class DiariesController < ApplicationController
 
   def show
     @diary = Diary.find(params[:id])
+    @comment = Comment.new
+    @comments = @diary.comments.includes(:user).order(created_at: :desc)
   end
 
   private
