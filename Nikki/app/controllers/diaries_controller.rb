@@ -42,6 +42,10 @@ class DiariesController < ApplicationController
     redirect_to diaries_path, success: t('defaults.message.deleted', item: Diary.model_name.human)
   end
 
+  def bookmarks
+    @bookmark_diaries = current_user.bookmark_diaries.includes(:user).order(created_at: :desc)
+  end
+
   private
 
   def diary_params
