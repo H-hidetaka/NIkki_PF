@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#top'
 
-
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   post 'guest_login', to: 'user_sessions#guest_login'
@@ -9,7 +8,7 @@ Rails.application.routes.draw do
   post 'diaries/new', to: 'diaries#create'
 
   resources :users, only: %i[new create destroy]
-  resources :diaries, only: %i[index new create show] do
+  resources :diaries  do
     resources :comments, only: %i[create], shallow: true
   end
 end

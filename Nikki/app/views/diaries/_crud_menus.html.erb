@@ -1,11 +1,11 @@
 <ul class='crud-menu-btn list-inline float-right'>
   <li class="list-inline-item">
-    <%= link_to '#', id: "button-edit-#{diary.id}" do %>
+    <%= link_to edit_diary_path(diary), id: "button-edit-#{diary.id}" do %>
       <%= icon 'fa', 'pen' %>
     <% end %>
   </li>
   <li class="list-inline-item">
-    <%= link_to '#', id: "button-delete-#{diary.id}" do %>
+    <%= link_to diary_path(diary), id: "button-delete-#{diary.id}", method: :delete, data: { confirm: t('defaults.message.delete_confirm') } do %>
       <%= icon 'fas', 'trash' %>
     <% end %>
   </li>
