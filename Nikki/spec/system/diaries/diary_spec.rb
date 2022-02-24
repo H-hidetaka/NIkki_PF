@@ -3,6 +3,7 @@ require 'rails_helper'
 describe 'Diary＃create', type: :system do
   let(:user) { create(:user) }
   let(:diary) { create(:diary, user: user)}
+  let(:diary_by_others) { create(:diary)}
 
   describe '日記のCRUD' do
     describe '日記の作成' do
@@ -58,7 +59,9 @@ describe 'Diary＃create', type: :system do
           expect(page).to have_content('日記を作成しました')
         end
 
-        #5
+      #   #5
+      # context '他人の日記の場合' do
+      #   it '編集ボタン・削除ボタンが表示されないこと'
       end
     end
   end

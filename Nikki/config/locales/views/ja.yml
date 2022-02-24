@@ -44,6 +44,12 @@ ja:
       title: '日記編集'
     bookmarks:
       title: 'ブックマーク一覧'
+      no_result: 'ブックマーク中の日記がありません。'
+  bookmarks:
+    create:
+      success: 'ブックマークをしました。'
+    destroy:
+      success: 'ブックマークを外しました'
   profiles:
     show:
       title: 'プロフィール'

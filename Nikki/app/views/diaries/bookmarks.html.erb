@@ -18,13 +18,8 @@
   <div class="row">
     <div class="col-12">
       <div class="row">
-        <% if @diaries.present? %>
-          <%= render @diaries %>
-          <%
-=begin%>
- <%= render partial: 'diary', collection: @diaries %>
-<%
-=end%>
+        <% if @bookmark_diaries.present? %>
+          <%= render @bookmark_diaries %>
         <% else %>
           <p><%= t('.no_result') %></p>
         <% end %>
