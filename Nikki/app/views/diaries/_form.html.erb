@@ -1,4 +1,4 @@
-<%= form_with model: diary, local: true do |f| %>
+<%= form_with model: diary, local: false do |f| %>
   <%= render 'layouts/shared/error_messages', object: f.object %>
   <div class="form-group">
     <%= f.label :title %>
