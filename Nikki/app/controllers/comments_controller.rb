@@ -6,14 +6,21 @@ class CommentsController < ApplicationController
   end
 
   def create
-    binding.pry
     @comment = current_user.comments.build(comment_params)
     @comment.save
+    # respond_to do |format|
+    #   format.html { redirect_to @user }
+    #   format.js
+    # end
   end
 
   def destroy
     @comment = current_user.comments.find(params[:id])
     @comment.destroy!
+    # respond_to do |format|
+    #   format.html { redirect_to @user }
+    #   format.js
+    # end
   end
 
   private
