@@ -1,6 +1,6 @@
 class DiariesController < ApplicationController
   def index
-    @diaries = Diary.all.includes(:user).order(created_at: :desc)
+    @diaries = Diary.all.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -43,12 +43,12 @@ class DiariesController < ApplicationController
   end
 
   def bookmarks
-    @bookmark_diaries = current_user.bookmark_diaries.includes(:user).order(created_at: :desc)
+    @bookmark_diaries = current_user.bookmark_diaries.includes(:user).order(created_at: :desc).page(params[page])
   end
 
   private
 
   def diary_params
-    params.require(:diary).permit(:title, :body, :diary_image, :diary_image_cache, :comments)
+    params.require(:diary).permit(:title, :body, :diary_image, :diary_image_cache, :comments, :page)
   end
 end
