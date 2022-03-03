@@ -19,16 +19,11 @@
       user: User.offset(rand(User.count)).first,
       title: "タイトル#{index}",
       body: "本文#{index}",
-      comment: [
-        { Faker::Games::Pokemon.name
+    )
+  end
 
-        },
-      ]
+2000.times do
+  Comment.create(
+    body: Faker::Games::Pokemon.name
   )
 end
-
-# 2000.times do
-#   Comment.create(
-#     body: Faker::Games::Pokemon.name
-#   )
-# end

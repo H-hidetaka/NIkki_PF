@@ -1,6 +1,7 @@
 class DiariesController < ApplicationController
   def index
-    @diaries = Diary.all.includes(:user).order(created_at: :desc).page(params[:page])
+    @q = Diary.ransack(params[:q])
+    @diaries =  @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -43,7 +44,8 @@ class DiariesController < ApplicationController
   end
 
   def bookmarks
-    @bookmark_diaries = current_user.bookmark_diaries.includes(:user).order(created_at: :desc).page(params[page])
+    @q = current_user.bookmark_diaries.ransack(params[:q])
+    @bookmark_diaries = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   private
