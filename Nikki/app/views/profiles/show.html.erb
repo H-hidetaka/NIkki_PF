@@ -11,7 +11,7 @@
         </tr>
         <tr>
           <th scope="row"><%= t(User.human_attribute_name(:full_name)) %></th>
-          <td><%= current_user.decorate.full_name %></td>
+          <td><%= current_user.decorate.user_name %></td>
         </tr>
         <tr>
           <th scope="row"><%= t(User.human_attribute_name(:avatar)) %></th>
@@ -21,4 +21,3 @@
     </div>
   </div>
 </div>
-app/views/shared/_header.html.erb
